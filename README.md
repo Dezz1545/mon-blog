@@ -57,9 +57,6 @@ CREATE DATABASE blog_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE blog_db;
 SOURCE chemin/vers/database.sql;
 
-4. **Config
-# Copier le fichier de configuration
-cp includes/config.example.php includes/config.php
 
 # Éditer les paramètres
 nano includes/config.php
