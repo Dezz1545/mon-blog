@@ -175,7 +175,7 @@ include 'includes/header.php';
                             </div>
                             <div>
                                 <h4 style="margin-bottom: 5px; color: #333;">Email</h4>
-                                <p style="color: #666; margin: 0;">contact@mon-blog.com<br>support@mon-blog.com</p>
+                                <p style="color: #666; margin: 0;">contact@monblogphp.com<br>support@monblogphp.com</p>
                             </div>
                         </div>
                     </div>
@@ -212,12 +212,5 @@ include 'includes/header.php';
     </div>
 </section>
 
-<!-- Carte (optionnelle) -->
-<div style="height: 400px; background: #f0f0f0; display: flex; align-items: center; justify-content: center; color: #666;">
-    <div style="text-align: center;">
-        <i class="fas fa-map" style="font-size: 4rem; margin-bottom: 20px; opacity: 0.3;"></i>
-        <p>Carte Google Maps ici<br><small>(Intégration optionnelle)</small></p>
-    </div>
-</div>
 
 <?php include 'includes/footer.php'; ?>

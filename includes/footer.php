@@ -82,7 +82,7 @@
         <div class="container" style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #34495e;">
             <p style="color: #95a5a6; margin: 0; font-size: 0.9rem;">
                 &copy; <?php echo date('Y'); ?> <?php echo SITE_NAME; ?>. 
-                <span style="margin-left: 10px;">Développé avec <i class="fas fa-heart" style="color: #e74c3c;"></i> en PHP/MySQL</span>
+                <span style="margin-left: 10px;">Développé </i> en PHP/MySQL</span>
             </p>
         </div>
     </footer>
