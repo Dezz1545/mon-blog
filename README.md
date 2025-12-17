@@ -2,7 +2,8 @@
 
 Un système de blog complet développé en PHP natif sans framework, avec dashboard administrateur, gestion d'articles, commentaires, utilisateurs et newsletter.
 
-![Dashboard Preview](https://via.placeholder.com/800x400/2c3e50/ecf0f1?text=Dashboard+Admin)
+![Dashboard Preview](<img width="1919" height="927" alt="image" src="https://github.com/user-attachments/assets/28267024-a1db-43e9-b039-5119f0e849af" />
+)
 *Capture d'écran du dashboard administrateur*
 
 ## ✨ Fonctionnalités
