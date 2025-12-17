@@ -1,0 +1,46 @@
+# Activation du rewrite engine
+RewriteEngine On
+Options -Indexes
+
+# Base du répertoire (IMPORTANT pour localhost)
+RewriteBase /mon-blog/
+
+# URL rewriting pour les articles
+RewriteRule ^article/([0-9]+)/([a-zA-Z0-9-]+)/?$ article.php?id=$1 [L,QSA]
+RewriteRule ^categorie/([0-9]+)/([a-zA-Z0-9-]+)/?$ blog.php?category=$1 [L,QSA]
+RewriteRule ^auteur/([0-9]+)/([a-zA-Z0-9-]+)/?$ blog.php?author=$1 [L,QSA]
+
+# URL rewriting pour la recherche
+RewriteRule ^recherche/(.+)/?$ blog.php?q=$1 [L,QSA]
+RewriteRule ^recherche/?$ blog.php [L,QSA]
+
+# Pages statiques
+RewriteRule ^contact/?$ contact.php [L]
+RewriteRule ^a-propos/?$ about.php [L]
+RewriteRule ^mentions-legales/?$ legal.php [L]
+
+# Protection contre les injections
+RewriteCond %{QUERY_STRING} (\<|%3C).*script.*(\>|%3E) [NC,OR]
+RewriteCond %{QUERY_STRING} GLOBALS(=|\[|\%[0-9A-Z]{0,2}) [OR]
+RewriteCond %{QUERY_STRING} _REQUEST(=|\[|\%[0-9A-Z]{0,2})
+RewriteRule ^(.*)$ index.php [F,L]
+
+# Protéger les fichiers sensibles (CORRIGÉ)
+<FilesMatch "\.(htaccess|htpasswd|ini|log|sh|inc|bak|config|sql)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Empêcher l'accès aux fichiers .php dans uploads
+RewriteRule ^uploads/.*\.php$ - [F,L]
+
+# Redirection des erreurs
+ErrorDocument 404 /mon-blog/404.php
+ErrorDocument 403 /mon-blog/403.php
+ErrorDocument 500 /mon-blog/500.php
+
+# Autoriser l'accès aux fichiers dans uploads (IMPORTANT)
+<FilesMatch "\.(jpg|jpeg|png|gif|webp|pdf|txt)$">
+    Order Allow,Deny
+    Allow from all
+</FilesMatch>
