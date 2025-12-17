@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mer. 17 déc. 2025 à 13:47
+-- Généré le : mer. 17 déc. 2025 à 14:50
 -- Version du serveur : 10.4.22-MariaDB
 -- Version de PHP : 8.1.2
 
@@ -47,7 +47,7 @@ CREATE TABLE `articles` (
 --
 
 INSERT INTO `articles` (`id`, `title`, `slug`, `content`, `excerpt`, `image`, `category_id`, `user_id`, `views`, `created_at`, `updated_at`, `published`) VALUES
-(2, 'La vie en france', 'la-vie-en-france', 'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz', '', '694088dd8f2c4.png', 6, 5, 31, '2025-12-15 23:17:01', '2025-12-17 13:20:22', 1);
+(3, 'Les diagrammes de classe en UML', 'les-diagrammes-de-classe-en-uml', 'Un diagramme de classe est un type de diagramme UML qui décrit un système en visualisant les différents types d\'objets au sein d\'un système et les types de relations statiques qui existent entre eux. Il illustre également les opérations et les attributs des classes.', '', '6942aef965cb6.png', 8, 9, 3, '2025-12-17 14:24:09', '2025-12-17 14:24:36', 1);
 
 -- --------------------------------------------------------
 
@@ -67,7 +67,7 @@ CREATE TABLE `article_likes` (
 --
 
 INSERT INTO `article_likes` (`id`, `article_id`, `user_id`, `created_at`) VALUES
-(2, 2, 8, '2025-12-15 23:17:12');
+(4, 3, 10, '2025-12-17 14:24:35');
 
 -- --------------------------------------------------------
 
@@ -93,7 +93,9 @@ INSERT INTO `categories` (`id`, `name`, `slug`, `description`, `created_at`) VAL
 (3, 'Design', 'design', NULL, '2025-12-15 20:13:31'),
 (4, 'Marketing', 'marketing', NULL, '2025-12-15 20:13:31'),
 (5, 'Business', 'business', NULL, '2025-12-15 20:13:31'),
-(6, 'Autre', 'autre', '', '2025-12-15 22:35:47');
+(6, 'Autre', 'autre', '', '2025-12-15 22:35:47'),
+(7, 'Foot', 'foot', '', '2025-12-17 13:53:33'),
+(8, 'Informatique', 'informatique', '', '2025-12-17 14:23:33');
 
 -- --------------------------------------------------------
 
@@ -110,14 +112,6 @@ CREATE TABLE `comments` (
   `is_approved` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Déchargement des données de la table `comments`
---
-
-INSERT INTO `comments` (`id`, `article_id`, `user_id`, `content`, `created_at`, `is_approved`) VALUES
-(2, 2, 8, 'bon contenu', '2025-12-15 23:18:24', 1),
-(3, 2, 5, 'merci', '2025-12-15 23:19:03', 1);
-
 -- --------------------------------------------------------
 
 --
@@ -133,13 +127,6 @@ CREATE TABLE `contacts` (
   `created_at` datetime DEFAULT current_timestamp(),
   `is_read` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Déchargement des données de la table `contacts`
---
-
-INSERT INTO `contacts` (`id`, `name`, `email`, `subject`, `message`, `created_at`, `is_read`) VALUES
-(1, 'Atti N&#039;guessan', 'nguessanatti1545@gmail.com', '', 'la vie c&#039;est pas favile je amsmmmmmmmmmmmmmmm', '2025-12-15 23:20:02', 1);
 
 -- --------------------------------------------------------
 
@@ -159,7 +146,8 @@ CREATE TABLE `newsletter` (
 --
 
 INSERT INTO `newsletter` (`id`, `email`, `subscribed_at`, `is_active`) VALUES
-(1, 'nguessanlandry216@gmail.com', '2025-12-15 22:50:27', 1);
+(1, 'nguessanlandry216@gmail.com', '2025-12-15 22:50:27', 0),
+(2, 'nguessanatti1545@gmail.com', '2025-12-17 14:25:10', 1);
 
 -- --------------------------------------------------------
 
@@ -185,8 +173,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `role`, `avatar`, `created_at`, `is_active`, `reset_token`, `token_expiry`) VALUES
-(5, 'Dezz', 'nguessanlandry216@gmail.com', '$2y$10$irav4rWVuclrhM7MRweP7eYlIbTe/l/TE6fIRg2izN.xR.9aSq0y6', 'admin', NULL, '2025-12-15 20:48:38', 1, NULL, NULL),
-(8, 'Tonton', 'tokleduc@ymail.com', '$2y$10$LmiH/VBMwiMeQZRW/FeEBOdp1S3uTzSmK2s4KYcQ8uFBILp5zB.M2', 'user', NULL, '2025-12-15 23:16:07', 1, NULL, NULL);
+(9, 'Dezz', 'landry@gmail.com', '$2y$10$DqJz7TC1vlTnkKyyhJY36OVJNk4nBjS0YEjAXwLxBmpnxYs0R/lrO', 'admin', NULL, '2025-12-17 14:08:53', 1, NULL, NULL),
+(10, 'User1', 'User1@gmail.com', '$2y$10$xoldFqcmTU0fS/opCTD4E.KFPuYI0sF7O00eBfZa3FwTkCaGpwB.W', 'user', NULL, '2025-12-17 14:12:25', 1, NULL, NULL);
 
 --
 -- Index pour les tables déchargées
@@ -253,19 +241,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `articles`
 --
 ALTER TABLE `articles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `article_likes`
 --
 ALTER TABLE `article_likes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT pour la table `comments`
@@ -283,13 +271,13 @@ ALTER TABLE `contacts`
 -- AUTO_INCREMENT pour la table `newsletter`
 --
 ALTER TABLE `newsletter`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Contraintes pour les tables déchargées
